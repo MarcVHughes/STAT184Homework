@@ -5,3 +5,70 @@ output: html_document
 ---
 
 
+```{r}
+#load in Minneapolis2013 data 
+install.packages("devtools")
+library(devtools)
+install_github("mdbeckman/dcData")
+library(dcData)
+data("Minneapolis2013", package = "dcData")
+library(tidyverse)
+```
+
+
+# Exercise 7.3
+
+1.) 
+```{r}
+Minneapolis2013 %>%
+  summarise(count = n())
+```
+
+There are 80,101 cases
+
+2.) 
+```{r}
+Minneapolis2013 %>%
+  group_by(Second) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count))
+```
+
+The top 5 candidates were; Betsy Hodges, Don Samuels, Mark Andrew, Jackie Cherryhomes, and Bob Fine
+
+3.)
+
+```{r}
+Minneapolis2013 %>%
+  summarise("Undervotes in First" = sum(First == "undervote"),
+            "Undervotes in Second" = sum(Second == "undervote"),
+            "Undervotes in Third" = sum(Third == "undervote"))
+```
+
+Undervotes in first choice selections: 834
+Undervotes in second choice selections: 10598
+Undervotes in third choice selections: 19210
+
+4.)
+
+```{r}
+Minneapolis2013 %>%
+  group_by(First, Second) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count))
+```
+
+The top 3 combinations of first and second vote selections were; Betsy Hodges and Mark Andrew, Betsy Hodges and Don Samuels, and Mark Andrew and Betsy Hodges respectively.
+
+5.)
+
+```{r}
+Minneapolis2013 %>%
+  group_by(Precinct) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count))
+```
+
+Precinct "P-06" had the highest number of ballots cast.
+
+# Exercise 7.5
