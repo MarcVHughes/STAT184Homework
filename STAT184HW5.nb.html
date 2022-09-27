@@ -1919,10 +1919,60 @@ Andrew and Betsy Hodges respectively.</p>
 </div>
 <div id="exercise-7.5" class="section level1">
 <h1>Exercise 7.5</h1>
+<ol style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVm90ZXJEYXRhX0EgPC1cbiAgTWlubmVhcG9saXMyMDEzICU+JVxuICBncm91cF9ieShGaXJzdCwgU2Vjb25kKSAlPiVcbiAgaGVhZChWb3RlckRhdGFfQSlcblxuYGBgIn0= -->
+<pre class="r"><code>VoterData_A &lt;-
+  Minneapolis2013 %&gt;%
+  group_by(First, Second) %&gt;%
+  head(VoterData_A)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gY2hlY2tIVChuLCBkIDwtIGRpbSh4KSkgOiBcbiAgaW52YWxpZCAnbicgLSAgbXVzdCBjb250YWluIGF0IGxlYXN0IG9uZSBub24tbWlzc2luZyBlbGVtZW50LCBnb3Qgbm9uZS5cbiJ9 -->
+<pre><code>Error in checkHT(n, d &lt;- dim(x)) : 
+  invalid &#39;n&#39; -  must contain at least one non-missing element, got none.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>VoterData_A has been modified by grouping by the “First” and “Second”
+variables. This does not actually change what a case represents in the
+data set, so the case of VoterData_A is still voters’ choices on a
+rank-choice election ballot.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>VoterData_B has been modified by using the summarise function to find
+the total number of cases in the “Minneapolis2013” data set. In the
+VoterData_B data set a case simply represents the total number of
+ballots cast.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVm90ZXJEYXRhX0MgPC1cbiAgTWlubmVhcG9saXMyMDEzICU+JVxuICBncm91cF9ieShGaXJzdCwgU2Vjb25kKSAlPiVcbiAgc3VtbWFyaXNlKCB0b3RhbCA9IG4oKSApXG5cbmBgYCJ9 -->
+<pre class="r"><code>VoterData_C &lt;-
+  Minneapolis2013 %&gt;%
+  group_by(First, Second) %&gt;%
+  summarise( total = n() )
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ0ZpcnN0Jy4gWW91IGNhbiBvdmVycmlkZSB1c2luZyB0aGUgYC5ncm91cHNgIGFyZ3VtZW50LlxuIn0= -->
+<pre><code>`summarise()` has grouped output by &#39;First&#39;. You can override using the `.groups` argument.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNUQVQxODRIVzUiDQphdXRob3I6ICJNYXJjIEh1Z2hlcyINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCg0KYGBge3J9DQojbG9hZCBpbiBNaW5uZWFwb2xpczIwMTMgZGF0YSANCmluc3RhbGwucGFja2FnZXMoImRldnRvb2xzIikNCmxpYnJhcnkoZGV2dG9vbHMpDQppbnN0YWxsX2dpdGh1YigibWRiZWNrbWFuL2RjRGF0YSIpDQpsaWJyYXJ5KGRjRGF0YSkNCmRhdGEoIk1pbm5lYXBvbGlzMjAxMyIsIHBhY2thZ2UgPSAiZGNEYXRhIikNCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQoNCg0KIyBFeGVyY2lzZSA3LjMNCg0KMS4pIA0KYGBge3J9DQpNaW5uZWFwb2xpczIwMTMgJT4lDQogIHN1bW1hcmlzZShjb3VudCA9IG4oKSkNCmBgYA0KDQpUaGVyZSBhcmUgODAsMTAxIGNhc2VzDQoNCjIuKSANCmBgYHtyfQ0KTWlubmVhcG9saXMyMDEzICU+JQ0KICBncm91cF9ieShTZWNvbmQpICU+JQ0KICBzdW1tYXJpc2UoY291bnQgPSBuKCkpICU+JQ0KICBhcnJhbmdlKGRlc2MoY291bnQpKQ0KYGBgDQoNClRoZSB0b3AgNSBjYW5kaWRhdGVzIHdlcmU7IEJldHN5IEhvZGdlcywgRG9uIFNhbXVlbHMsIE1hcmsgQW5kcmV3LCBKYWNraWUgQ2hlcnJ5aG9tZXMsIGFuZCBCb2IgRmluZQ0KDQozLikNCg0KYGBge3J9DQpNaW5uZWFwb2xpczIwMTMgJT4lDQogIHN1bW1hcmlzZSgiVW5kZXJ2b3RlcyBpbiBGaXJzdCIgPSBzdW0oRmlyc3QgPT0gInVuZGVydm90ZSIpLA0KICAgICAgICAgICAgIlVuZGVydm90ZXMgaW4gU2Vjb25kIiA9IHN1bShTZWNvbmQgPT0gInVuZGVydm90ZSIpLA0KICAgICAgICAgICAgIlVuZGVydm90ZXMgaW4gVGhpcmQiID0gc3VtKFRoaXJkID09ICJ1bmRlcnZvdGUiKSkNCmBgYA0KDQpVbmRlcnZvdGVzIGluIGZpcnN0IGNob2ljZSBzZWxlY3Rpb25zOiA4MzQNClVuZGVydm90ZXMgaW4gc2Vjb25kIGNob2ljZSBzZWxlY3Rpb25zOiAxMDU5OA0KVW5kZXJ2b3RlcyBpbiB0aGlyZCBjaG9pY2Ugc2VsZWN0aW9uczogMTkyMTANCg0KNC4pDQoNCmBgYHtyfQ0KTWlubmVhcG9saXMyMDEzICU+JQ0KICBncm91cF9ieShGaXJzdCwgU2Vjb25kKSAlPiUNCiAgc3VtbWFyaXNlKGNvdW50ID0gbigpKSAlPiUNCiAgYXJyYW5nZShkZXNjKGNvdW50KSkNCmBgYA0KDQpUaGUgdG9wIDMgY29tYmluYXRpb25zIG9mIGZpcnN0IGFuZCBzZWNvbmQgdm90ZSBzZWxlY3Rpb25zIHdlcmU7IEJldHN5IEhvZGdlcyBhbmQgTWFyayBBbmRyZXcsIEJldHN5IEhvZGdlcyBhbmQgRG9uIFNhbXVlbHMsIGFuZCBNYXJrIEFuZHJldyBhbmQgQmV0c3kgSG9kZ2VzIHJlc3BlY3RpdmVseS4NCg0KNS4pDQoNCmBgYHtyfQ0KTWlubmVhcG9saXMyMDEzICU+JQ0KICBncm91cF9ieShQcmVjaW5jdCkgJT4lDQogIHN1bW1hcmlzZShjb3VudCA9IG4oKSkgJT4lDQogIGFycmFuZ2UoZGVzYyhjb3VudCkpDQpgYGANCg0KUHJlY2luY3QgIlAtMDYiIGhhZCB0aGUgaGlnaGVzdCBudW1iZXIgb2YgYmFsbG90cyBjYXN0Lg0KDQojIEV4ZXJjaXNlIDcuNQ0K</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNUQVQxODRIVzUiDQphdXRob3I6ICJNYXJjIEh1Z2hlcyINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCg0KYGBge3J9DQojbG9hZCBpbiBNaW5uZWFwb2xpczIwMTMgZGF0YSANCmluc3RhbGwucGFja2FnZXMoImRldnRvb2xzIikNCmxpYnJhcnkoZGV2dG9vbHMpDQppbnN0YWxsX2dpdGh1YigibWRiZWNrbWFuL2RjRGF0YSIpDQpsaWJyYXJ5KGRjRGF0YSkNCmRhdGEoIk1pbm5lYXBvbGlzMjAxMyIsIHBhY2thZ2UgPSAiZGNEYXRhIikNCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQoNCg0KIyBFeGVyY2lzZSA3LjMNCg0KMS4pIA0KYGBge3J9DQpNaW5uZWFwb2xpczIwMTMgJT4lDQogIHN1bW1hcmlzZShjb3VudCA9IG4oKSkNCmBgYA0KDQpUaGVyZSBhcmUgODAsMTAxIGNhc2VzDQoNCjIuKSANCmBgYHtyfQ0KTWlubmVhcG9saXMyMDEzICU+JQ0KICBncm91cF9ieShTZWNvbmQpICU+JQ0KICBzdW1tYXJpc2UoY291bnQgPSBuKCkpICU+JQ0KICBhcnJhbmdlKGRlc2MoY291bnQpKQ0KYGBgDQoNClRoZSB0b3AgNSBjYW5kaWRhdGVzIHdlcmU7IEJldHN5IEhvZGdlcywgRG9uIFNhbXVlbHMsIE1hcmsgQW5kcmV3LCBKYWNraWUgQ2hlcnJ5aG9tZXMsIGFuZCBCb2IgRmluZQ0KDQozLikNCg0KYGBge3J9DQpNaW5uZWFwb2xpczIwMTMgJT4lDQogIHN1bW1hcmlzZSgiVW5kZXJ2b3RlcyBpbiBGaXJzdCIgPSBzdW0oRmlyc3QgPT0gInVuZGVydm90ZSIpLA0KICAgICAgICAgICAgIlVuZGVydm90ZXMgaW4gU2Vjb25kIiA9IHN1bShTZWNvbmQgPT0gInVuZGVydm90ZSIpLA0KICAgICAgICAgICAgIlVuZGVydm90ZXMgaW4gVGhpcmQiID0gc3VtKFRoaXJkID09ICJ1bmRlcnZvdGUiKSkNCmBgYA0KDQpVbmRlcnZvdGVzIGluIGZpcnN0IGNob2ljZSBzZWxlY3Rpb25zOiA4MzQNClVuZGVydm90ZXMgaW4gc2Vjb25kIGNob2ljZSBzZWxlY3Rpb25zOiAxMDU5OA0KVW5kZXJ2b3RlcyBpbiB0aGlyZCBjaG9pY2Ugc2VsZWN0aW9uczogMTkyMTANCg0KNC4pDQoNCmBgYHtyfQ0KTWlubmVhcG9saXMyMDEzICU+JQ0KICBncm91cF9ieShGaXJzdCwgU2Vjb25kKSAlPiUNCiAgc3VtbWFyaXNlKGNvdW50ID0gbigpKSAlPiUNCiAgYXJyYW5nZShkZXNjKGNvdW50KSkNCmBgYA0KDQpUaGUgdG9wIDMgY29tYmluYXRpb25zIG9mIGZpcnN0IGFuZCBzZWNvbmQgdm90ZSBzZWxlY3Rpb25zIHdlcmU7IEJldHN5IEhvZGdlcyBhbmQgTWFyayBBbmRyZXcsIEJldHN5IEhvZGdlcyBhbmQgRG9uIFNhbXVlbHMsIGFuZCBNYXJrIEFuZHJldyBhbmQgQmV0c3kgSG9kZ2VzIHJlc3BlY3RpdmVseS4NCg0KNS4pDQoNCmBgYHtyfQ0KTWlubmVhcG9saXMyMDEzICU+JQ0KICBncm91cF9ieShQcmVjaW5jdCkgJT4lDQogIHN1bW1hcmlzZShjb3VudCA9IG4oKSkgJT4lDQogIGFycmFuZ2UoZGVzYyhjb3VudCkpDQpgYGANCg0KUHJlY2luY3QgIlAtMDYiIGhhZCB0aGUgaGlnaGVzdCBudW1iZXIgb2YgYmFsbG90cyBjYXN0Lg0KDQojIEV4ZXJjaXNlIDcuNQ0KDQphKQ0KDQpgYGB7cn0NClZvdGVyRGF0YV9BIDwtDQogIE1pbm5lYXBvbGlzMjAxMyAlPiUNCiAgZ3JvdXBfYnkoRmlyc3QsIFNlY29uZCkNCmBgYA0KDQpWb3RlckRhdGFfQSBoYXMgYmVlbiBtb2RpZmllZCBieSBncm91cGluZyBieSB0aGUgIkZpcnN0IiBhbmQgIlNlY29uZCIgdmFyaWFibGVzLiBUaGlzIGRvZXMgbm90IGFjdHVhbGx5IGNoYW5nZSB3aGF0IGEgY2FzZSByZXByZXNlbnRzIGluIHRoZSBkYXRhIHNldCwgc28gdGhlIGNhc2Ugb2YgVm90ZXJEYXRhX0EgaXMgc3RpbGwgdm90ZXJzJyBjaG9pY2VzIG9uIGEgcmFuay1jaG9pY2UgZWxlY3Rpb24gYmFsbG90Lg0KDQpiKSANCg0KYGBge3J9DQpWb3RlckRhdGFfQiA8LQ0KICBNaW5uZWFwb2xpczIwMTMgJT4lDQogIHN1bW1hcmlzZSggdG90YWwgPSBuKCkgKQ0KYGBgDQoNClZvdGVyRGF0YV9CIGhhcyBiZWVuIG1vZGlmaWVkIGJ5IHVzaW5nIHRoZSBzdW1tYXJpc2UgZnVuY3Rpb24gdG8gZmluZCB0aGUgdG90YWwgbnVtYmVyIG9mIGNhc2VzIGluIHRoZSAiTWlubmVhcG9saXMyMDEzIiBkYXRhIHNldC4gSW4gdGhlIFZvdGVyRGF0YV9CIGRhdGEgc2V0IGEgY2FzZSBzaW1wbHkgcmVwcmVzZW50cyB0aGUgdG90YWwgbnVtYmVyIG9mIGJhbGxvdHMgY2FzdC4NCg0KYykNCg0KYGBge3J9DQpWb3RlckRhdGFfQyA8LQ0KICBNaW5uZWFwb2xpczIwMTMgJT4lDQogIGdyb3VwX2J5KEZpcnN0LCBTZWNvbmQpICU+JQ0KICBzdW1tYXJpc2UoIHRvdGFsID0gbigpICkNCmBgYA0KDQoNCg0K</div>
 
 
 

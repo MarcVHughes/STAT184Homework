@@ -72,3 +72,35 @@ Minneapolis2013 %>%
 Precinct "P-06" had the highest number of ballots cast.
 
 # Exercise 7.5
+
+a)
+
+```{r}
+VoterData_A <-
+  Minneapolis2013 %>%
+  group_by(First, Second)
+```
+
+VoterData_A has been modified by grouping by the "First" and "Second" variables. This does not actually change what a case represents in the data set, so the case of VoterData_A is still voters' choices on a rank-choice election ballot.
+
+b) 
+
+```{r}
+VoterData_B <-
+  Minneapolis2013 %>%
+  summarise( total = n() )
+```
+
+VoterData_B has been modified by using the summarise function to find the total number of cases in the "Minneapolis2013" data set. In the VoterData_B data set a case simply represents the total number of ballots cast.
+
+c)
+
+```{r}
+VoterData_C <-
+  Minneapolis2013 %>%
+  group_by(First, Second) %>%
+  summarise( total = n() )
+```
+
+
+
