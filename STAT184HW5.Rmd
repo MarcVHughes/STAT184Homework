@@ -113,7 +113,18 @@ VoterData_D <-
   group_by(First, Second) 
 ```
 
-
 The variable "First is now unknown because the code executes the line with the summarise() function prior to the group_by() function. As a result, the data set is modified to count the total number of cases and display the variable "total". There is no longer any columns matching the names "First" or "Second", so the code results in an error.
+
+# Exercise 7.7
+
+a.) There will be the following three variables; "sex", "count", and "meanAge".
+
+b.) There will once again be three variables; "diagnosis", "count", and "meanAge".
+
+c.) There will be the following four variables; "sex", "diagnosis", "count", and "meanAge".
+
+d.) There will be the following four variables; "age", "diagnosis", "count", and "meanAge".
+
+e.) There will be the following three variables; "age", "count", and "meanAge".
 
 
