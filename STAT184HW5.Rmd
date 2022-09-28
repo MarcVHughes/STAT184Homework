@@ -91,7 +91,7 @@ VoterData_B <-
   summarise( total = n() )
 ```
 
-VoterData_B has been modified by using the summarise function to find the total number of cases in the "Minneapolis2013" data set. In the VoterData_B data set a case simply represents the total number of ballots cast.
+VoterData_B has been modified by using the summarise() function to find the total number of cases in the "Minneapolis2013" data set. In the VoterData_B data set a case simply represents the total number of ballots cast.
 
 c)
 
@@ -102,5 +102,18 @@ VoterData_C <-
   summarise( total = n() )
 ```
 
+VoterData_C has been modified by using the group_by() and summarise() function to find the total number of combinations between the first and second vote selections in the ballots.
+
+d)
+
+```{r}
+VoterData_D <-
+  Minneapolis2013 %>%
+  summarise( total = n() ) %>%
+  group_by(First, Second) 
+```
+
+
+The variable "First is now unknown because the code executes the line with the summarise() function prior to the group_by() function. As a result, the data set is modified to count the total number of cases and display the variable "total". There is no longer any columns matching the names "First" or "Second", so the code results in an error.
 
 
